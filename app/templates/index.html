@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Handwriting Recognizer
+{% endblock %}
+
+{% block main %}
+    <div class="container bd-gutter mt-5">
+        <div class="col-md-8 mx-auto text-center">
+            <h1 class="mb-5 fw-semibold lh-1 text-light">Handwriting <span class="text-dark">Recognizer</span></h1>
+            <div class="text-light">
+                <hr>
+            </div>
+            <p class="text-light">This webpage showcases a trained machine learning model designed to recognize handwritten letters and numbers. Leveraging the EMNIST By Class dataset, the model demonstrates impressive accuracy, exceeding 80%. Explore how advanced algorithms process and interpret handwritten inputs, bridging the gap between human expression and digital understanding. The training script can be downloaded through the <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="https://github.com/Bryan-Rodrigues97/hand-writing.git">link</a></p>
+        </div>
+        <div>
+            <canvas id="drawingCanvas" width="300" height="300"></canvas>
+            <br>
+            <div style="text-align: center;">
+                <button class="btn btn-outline-light" id="resetBtn">Reset</button>
+                <button class="btn btn-outline-light" id="predictBtn">Predict</button>
+            </div>
+            <div class="card small-card mx-auto" id="result" hidden=false>
+                <div class="card-body">
+                    <p class="card-text">Result: <span id="resultLabelSpan"></span></p>
+                    <p class="card-text">Emnist Class: <span id="emnistClass"></span></p>
+                    <p class="card-text">ASCII Code: <span id="asciiCodeSpan"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
